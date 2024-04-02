@@ -1,2 +1,2 @@
 # snake_game
- 100 Days of Python Bootcamp
+ From 100 Days of Python Bootcamp by Dr. Angela Yu
