@@ -8,7 +8,9 @@ class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
-        self.high_score = 0
+        file = open("data.txt")
+        self.high_score = int(file.read())
+        file.close()
         self.penup()
         self.goto(0, 265)
         self.color("white")
@@ -36,5 +38,17 @@ class Scoreboard(Turtle):
         player score to 0.
         """
         if self.score > self.high_score:
-            self.high_score = self.score
+            file = open("data.txt", mode="w")
+            file.write(f"{self.score}")
+            file.close()
         self.score = 0
+        self.update_high_score()
+        self.update_scoreboard()
+
+    def update_high_score(self):
+        """
+        Updates the high score attribute.
+        """
+        file = open("data.txt")
+        self.high_score = int(file.read())
+        file.close()
